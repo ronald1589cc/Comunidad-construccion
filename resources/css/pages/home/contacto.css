@@ -1,0 +1,39 @@
+/* ==========================================================================
+   SECTIONS / CONTACTO.CSS
+   Ajustes propios de las fichas de Contacto (ícono y botón).
+   Reutiliza las clases base de resultados.css (metric-card-interactive, etc.)
+   ========================================================================== */
+
+/* Ícono: en hover pasa a caja blanca con trazo azul marino */
+#contacto .icon-box {
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+#contacto .metric-card-interactive:hover .icon-box {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+#contacto .metric-card-interactive:hover .icon-box svg {
+  color: var(--color-steel, #263D50);
+}
+
+/* Botón: al hover de la ficha pasa a azul marino; al hover del botón se invierte */
+#contacto .card-action a {
+  transition: background-color 0.3s ease, color 0.3s ease,
+              border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contacto .metric-card-interactive:hover .card-action a {
+  background-color: var(--color-steel, #263D50) !important;
+  border-color: var(--color-steel, #263D50) !important;
+  color: #FFFFFF !important;
+}
+
+#contacto .metric-card-interactive:hover .card-action a:hover {
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: var(--color-steel, #263D50) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -6px rgba(38, 61, 80, 0.45);
+}

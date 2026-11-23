@@ -1,0 +1,37 @@
+/* ==========================================================================
+   SECTIONS / SEGURIDAD.CSS
+   Ajustes propios de las fichas de Seguridad (corner compacto, ícono y cita).
+   Reutiliza las clases base de resultados.css (metric-card-interactive, etc.)
+   ========================================================================== */
+
+/* Corner más pequeño: las fichas de esta sección son bajas */
+#seguridad .metric-card-interactive .blueprint-corner {
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+/* Ícono: en hover pasa a caja blanca con trazo azul marino */
+#seguridad .icon-box {
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+#seguridad .metric-card-interactive:hover .icon-box {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+#seguridad .metric-card-interactive:hover .icon-box svg {
+  color: var(--color-steel, #263D50);
+}
+
+/* Cita destacada: ficha blanca de bordes rectos con barra naranja lateral */
+#seguridad .security-quote {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(38, 61, 80, 0.28);
+  border-left: 4px solid var(--color-construction, #F47721);
+  border-radius: 0;
+}

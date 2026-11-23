@@ -1,0 +1,31 @@
+/* ==========================================================================
+   SECTIONS / LEGAL.CSS
+   Fichas de texto legal (privacidad, términos y normas).
+   Reutiliza las clases base de resultados.css (slide-card-left, blueprint-corner)
+   ========================================================================== */
+
+#legal .legal-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(38, 61, 80, 0.28);
+  border-radius: 0;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  /* Deja espacio si un enlace del footer salta a #privacidad, #terminos o #normas */
+  scroll-margin-top: 6rem;
+}
+
+#legal .legal-card:hover {
+  border-color: var(--color-construction, #F47721);
+  box-shadow: 0 10px 24px -10px rgba(244, 119, 33, 0.25);
+}
+
+/* Corner compacto */
+#legal .legal-card .blueprint-corner {
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}

@@ -1,0 +1,134 @@
+/* ==========================================================================
+   SECTIONS / RESULTADOS.CSS
+   Estilos de Fichas Arquitectónicas (Blueprint) unificados para todas las secciones
+   ========================================================================== */
+
+/* Fondo con cuadrícula de plano técnico (blueprint) en gris azulado suave */
+.blueprint-grid {
+  background-color: #FFFFFF;
+  background-image:
+    linear-gradient(to right, rgba(38, 61, 80, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(38, 61, 80, 0.08) 1px, transparent 1px);
+  background-size: 38px 38px;
+  background-position: center center;
+}
+
+/* Fichas métricas y arquitectónicas: entrada deslizándose desde la izquierda */
+.slide-card-left {
+  opacity: 0;
+}
+
+.slide-card-left.visible {
+  opacity: 1;
+  animation: slide-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms) backwards;
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Sin JS: mostrar las fichas igual */
+@media (scripting: none) {
+  .slide-card-left { opacity: 1; }
+}
+
+/* Ficha arquitectónica idéntica a la imagen:
+   - Fondo blanco puro
+   - Borde fino azul marino
+   - Esquinas rectas de plano (sin redondeos)
+   - Transición fluida
+*/
+.metric-card-interactive {
+  position: relative;
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(38, 61, 80, 0.28) !important;
+  border-radius: 0px !important;
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  box-sizing: border-box;
+}
+
+/* Al pasar el cursor: relleno naranja sólido y sombra arquitectónica */
+.metric-card-interactive:hover {
+  background-color: var(--color-construction, #F47721) !important;
+  border-color: var(--color-construction, #F47721) !important;
+  box-shadow: 0 16px 36px -8px rgba(244, 119, 33, 0.28);
+}
+
+/* Indicador de esquina arquitectónica tipo plano (L-bracket) */
+.blueprint-corner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  border-top: 2.5px solid var(--color-construction, #F47721);
+  border-right: 2.5px solid var(--color-construction, #F47721);
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.metric-card-interactive:hover .blueprint-corner {
+  border-color: var(--color-steel, #263D50) !important;
+}
+
+/* Número 01-04: en reposo naranja, en hover se desplaza y pasa a azul marino */
+.metric-card-interactive .card-num {
+  color: var(--color-construction, #F47721);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  display: inline-block;
+}
+
+.metric-card-interactive:hover .card-num {
+  transform: translateX(12px) !important;
+  color: var(--color-steel, #263D50) !important;
+}
+
+/* En hover: todos los textos, títulos y cifras pasan a azul marino */
+.metric-card-interactive:hover h1,
+.metric-card-interactive:hover h2,
+.metric-card-interactive:hover h3,
+.metric-card-interactive:hover h4,
+.metric-card-interactive:hover p,
+.metric-card-interactive:hover a,
+.metric-card-interactive:hover span:not(.card-num) {
+  color: var(--color-steel, #263D50) !important;
+}
+
+/* Accesibilidad: si el usuario prefiere movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .slide-card-left {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .metric-card-interactive:hover .card-num {
+    transform: none !important;
+  }
+}
+
+.metric-card-interactive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-steel, #263D50);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.metric-card-interactive:hover::after {
+  transform: scaleX(1);
+}
+
+/* Cifra adaptable al ancho de la ficha (requiere @container en el li) */
+.metric-value {
+  font-size: clamp(1.875rem, 15cqw, 3rem);
+  line-height: 1;
+  white-space: nowrap;
+}

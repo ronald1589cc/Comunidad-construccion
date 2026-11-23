@@ -1,0 +1,8 @@
+/* ==========================================================================
+   PAGES / COMUNIDADES / PLANTEL / PLANTEL.CSS
+   Estilos específicos de la comunidad de Plantel Profesional Técnico
+   ========================================================================== */
+
+#empresas .spec-badge {
+  transition: all 0.2s ease;
+}

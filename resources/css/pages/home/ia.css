@@ -1,0 +1,33 @@
+/* ==========================================================================
+   SECTIONS / IA.CSS
+   Ficha de la sección IA (en desarrollo).
+   Reutiliza las clases base de resultados.css (slide-card-left, blueprint-corner)
+   ========================================================================== */
+
+#ia .ia-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(38, 61, 80, 0.28);
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Punto "en desarrollo" con pulso suave */
+#ia .ia-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--color-construction, #F47721);
+  animation: ia-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes ia-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.35; transform: scale(0.75); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #ia .ia-dot {
+    animation: none;
+  }
+}

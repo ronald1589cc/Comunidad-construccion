@@ -1,0 +1,21 @@
+/* ==========================================================================
+   SECTIONS / RUTAS.CSS
+   Estilos específicos de tarjetas de selección de rutas e intención
+   (corresponde a sections/rutas.blade.php e intent-selector.blade.php)
+   ========================================================================== */
+
+.intent-card {
+  background-color: #FFFFFF;
+  border-color: #E9ECEF;
+  transition: all 0.2s ease;
+}
+
+.intent-card:hover {
+  border-color: #F47721;
+  box-shadow: 0 4px 15px rgba(244, 119, 33, 0.1);
+}
+
+.intent-card.selected {
+  border-color: #F47721;
+  background-color: rgba(244, 119, 33, 0.05);
+}

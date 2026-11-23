@@ -1,0 +1,98 @@
+/* ==========================================================================
+   SECTIONS / FAQ.CSS
+   Acordeón de preguntas frecuentes con fichas de plano técnico.
+   Reutiliza las clases base de resultados.css (slide-card-left, blueprint-corner)
+   ========================================================================== */
+
+/* Ficha: bordes rectos, corner naranja compacto */
+#faq .faq-item {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(38, 61, 80, 0.28);
+  border-radius: 0;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#faq .faq-item .blueprint-corner {
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+#faq .faq-item:hover {
+  border-color: var(--color-construction, #F47721);
+  box-shadow: 0 10px 24px -10px rgba(244, 119, 33, 0.25);
+}
+
+/* Barra naranja lateral cuando la pregunta está abierta */
+#faq .faq-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-construction, #F47721);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+#faq .faq-item.is-open::before {
+  transform: scaleY(1);
+}
+
+/* Caja del chevron: cuadrada, se rellena de naranja al abrir */
+#faq .faq-chevron-box {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(38, 61, 80, 0.28);
+  color: var(--color-steel, #263D50);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+#faq .faq-item.is-open .faq-chevron-box {
+  background-color: var(--color-construction, #F47721);
+  border-color: var(--color-construction, #F47721);
+  color: #FFFFFF;
+}
+
+#faq .faq-chevron {
+  transition: transform 0.3s ease;
+}
+
+#faq .faq-item.is-open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Respuesta: altura animada con grid (0fr a 1fr), sin max-height fijo */
+#faq .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.35s ease, visibility 0s linear 0.35s;
+}
+
+#faq .faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+#faq .faq-answer-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #faq .faq-answer,
+  #faq .faq-chevron,
+  #faq .faq-item::before {
+    transition: none;
+  }
+}

@@ -1,0 +1,71 @@
+/* ==========================================================================
+   SECTIONS / ECOSISTEMA.CSS
+   Fichas de soluciones (ícono centrado) y flujo del proyecto.
+   Reutiliza las clases base de resultados.css (metric-card-interactive, etc.)
+   ========================================================================== */
+
+/* Corner compacto: las fichas son pequeñas */
+#ecosistema .metric-card-interactive .blueprint-corner {
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+/* Ícono: en hover pasa a caja blanca con trazo azul marino */
+#ecosistema .icon-box {
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+#ecosistema .metric-card-interactive:hover .icon-box {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+#ecosistema .metric-card-interactive:hover .icon-box svg {
+  color: var(--color-steel, #263D50);
+}
+
+/* Flujo del proyecto: ficha blanca con barra naranja lateral */
+#ecosistema .flow-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(38, 61, 80, 0.28);
+  border-left: 4px solid var(--color-construction, #F47721);
+  border-radius: 0;
+}
+
+/* Paso del flujo: cuadro con número y texto */
+#ecosistema .flow-step {
+  position: relative;
+  border: 1px solid rgba(38, 61, 80, 0.2);
+  background-color: #FFFFFF;
+  border-radius: 0;
+}
+
+/* Flecha entre pasos (solo en escritorio, donde van en una fila) */
+@media (min-width: 1024px) {
+  #ecosistema .flow-step:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    top: 50%;
+    right: -19px;
+    transform: translateY(-50%);
+    width: 14px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-construction, #F47721);
+  }
+}
+
+/* Último paso (proyecto ejecutado): resaltado */
+#ecosistema .flow-step--final {
+  background-color: var(--color-construction, #F47721);
+  border-color: var(--color-construction, #F47721);
+}
+
+#ecosistema .flow-step--final .flow-num,
+#ecosistema .flow-step--final .flow-text {
+  color: var(--color-steel, #263D50);
+}

@@ -1,0 +1,12 @@
+/* ==========================================================================
+   SECTIONS / FORMULARIO.CSS
+   Estilos específicos de campos y validación de formularios
+   (corresponde a sections/formulario.blade.php y solicitar-acceso.blade.php)
+   ========================================================================== */
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  font-family: var(--font-inter), sans-serif;
+}

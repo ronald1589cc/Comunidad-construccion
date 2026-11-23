@@ -1,0 +1,20 @@
+/* ==========================================================================
+   SECTIONS / CTA-FINAL.CSS
+   Ficha del llamado a la acción final (clara, antes del footer oscuro).
+   Reutiliza las clases base de resultados.css (slide-card-left, blueprint-corner)
+   ========================================================================== */
+
+#cta-final .cta-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(38, 61, 80, 0.28);
+  border-top: 4px solid var(--color-construction, #F47721);
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* El corner baja un poco para no chocar con la barra superior */
+#cta-final .cta-card .blueprint-corner {
+  top: 14px;
+  right: 12px;
+}

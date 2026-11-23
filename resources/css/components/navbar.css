@@ -1,0 +1,99 @@
+/* ==========================================================================
+   COMPONENTS / NAVBAR.CSS
+   Estilos específicos del navbar (corresponde a components/navbar.blade.php)
+   ========================================================================== */
+
+/* Barra de navegación fija: transparente en portada, fondo blanco al scrollear */
+.nav-fixed {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  background-color: transparent !important;
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-inter), sans-serif;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-fixed.nav-scrolled {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid var(--color-concrete, #E9ECEF) !important;
+  box-shadow: 0 4px 16px -2px rgba(34, 38, 41, 0.08) !important;
+}
+
+/* Compensación de desplazamiento de anclas para no quedar oculto bajo el navbar fijo */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Logo que se compacta al hacer scroll */
+.nav-logo {
+  height: 3.5rem;
+  width: auto;
+  transition: height 0.25s ease;
+}
+
+.nav-fixed.nav-scrolled .nav-logo {
+  height: 3rem;
+}
+
+@media (min-width: 768px) {
+  .nav-logo {
+    height: 5rem;
+  }
+  .nav-fixed.nav-scrolled .nav-logo {
+    height: 3.5rem;
+  }
+}
+
+/* Subrayado animado de los links */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 2px;
+  background: var(--color-construction, #F47721);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Logo optimizado para navbars de subsecciones de comunidades */
+.nav-logo-sub {
+  height: 2.25rem;
+  width: auto;
+  transition: height 0.25s ease;
+}
+
+.nav-fixed.nav-scrolled .nav-logo-sub {
+  height: 2rem;
+}
+
+@media (min-width: 768px) {
+  .nav-logo-sub {
+    height: 2.75rem;
+  }
+  .nav-fixed.nav-scrolled .nav-logo-sub {
+    height: 2.25rem;
+  }
+}
+
+/* Dropdown de comunidades */
+.community-dropdown-content {
+  box-shadow: 0 10px 25px -5px rgba(34, 38, 41, 0.12), 0 8px 10px -6px rgba(34, 38, 41, 0.08);
+}

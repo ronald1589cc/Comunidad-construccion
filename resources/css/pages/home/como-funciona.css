@@ -1,0 +1,45 @@
+/* ==========================================================================
+   SECTIONS / COMO-FUNCIONA.CSS
+   Estilos específicos de la sección Cómo Funciona (tabs interactivas)
+   (corresponde a sections/como-funciona.blade.php)
+   ========================================================================== */
+
+.tab-btn.active {
+  border-bottom: 2px solid #F47721;
+  color: #F47721;
+}
+
+/* Línea punteada que une los pasos (queda detrás de las fichas) */
+#como-funciona [data-pasos] {
+  position: relative;
+}
+
+#como-funciona [data-pasos]::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 41px; /* centro del cuadro numerado */
+  border-left: 1px dashed rgba(38, 61, 80, 0.3);
+  pointer-events: none;
+}
+
+/* Número: cuadrado naranja; en hover de la ficha pasa a azul marino */
+#como-funciona .step-num {
+  transition: background-color 0.35s ease;
+}
+
+#como-funciona .metric-card-interactive:hover .step-num {
+  background-color: var(--color-steel, #263D50);
+  color: #FFFFFF !important;
+}
+
+/* Ícono lateral: tenue en reposo, azul marino en hover */
+#como-funciona .step-icon {
+  color: rgba(38, 61, 80, 0.35);
+  transition: color 0.3s ease;
+}
+
+#como-funciona .metric-card-interactive:hover .step-icon {
+  color: var(--color-steel, #263D50);
+}

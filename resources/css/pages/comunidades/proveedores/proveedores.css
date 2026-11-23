@@ -1,0 +1,8 @@
+/* ==========================================================================
+   PAGES / COMUNIDADES / PROVEEDORES / PROVEEDORES.CSS
+   Estilos específicos de la comunidad de Proveedores y Subcontratistas
+   ========================================================================== */
+
+#intent-selector .intent-card:hover h3 {
+  color: var(--color-steel, #263D50);
+}

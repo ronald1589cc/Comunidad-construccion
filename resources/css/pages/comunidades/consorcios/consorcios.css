@@ -1,0 +1,8 @@
+/* ==========================================================================
+   PAGES / COMUNIDADES / CONSORCIOS / CONSORCIOS.CSS
+   Estilos específicos de la comunidad de Consorcios para Licitaciones y OxI
+   ========================================================================== */
+
+#rutas .intent-card:hover h3 {
+  color: var(--color-steel, #263D50);
+}
